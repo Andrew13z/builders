@@ -1,6 +1,6 @@
 To build the project Java 8 is required.
 
 To build the project with Maven, run "mvn install" in builders.
-The required artifact will be in the buildMaven folder.
+The "web" module war and "admin" module jar will be in the buildMaven folder.
 
 To test the project with Maven, run "mvn test" in builders.
