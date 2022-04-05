@@ -1,0 +1,10 @@
+dependencies {
+    implementation project(':services')
+    implementation project(':utils')
+}
+
+copy {
+    from 'build/libs'
+    into '../buildGradle'
+    include '*.jar'
+}

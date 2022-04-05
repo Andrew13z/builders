@@ -11,7 +11,8 @@
 
     <properties>
         <project.version>1.0.0</project.version>
-        <junit.version>5.8.2</junit.version>
+        <javax.version>4.0.1</javax.version>
+        <junit.version>4.13.2</junit.version>
     </properties>
 
     <modules>
@@ -26,7 +27,7 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>4.0.1</version>
+                <version>${javax.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.example</groupId>
@@ -41,7 +42,7 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.13.2</version>
+                <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>

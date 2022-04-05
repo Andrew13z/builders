@@ -1,0 +1,20 @@
+plugins {
+    id 'war'
+}
+
+dependencies {
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+
+    implementation project(':services')
+    implementation project(':utils')
+}
+
+war {
+    webAppDirectory = file('src/main/webapp')
+}
+
+copy {
+    from 'build/libs'
+    into '../buildGradle'
+    include '*.war'
+}
