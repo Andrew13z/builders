@@ -4,7 +4,7 @@ Maven
 
 Apache Maven 3.6.3 or other compatible version is required for this build.
 
-To build the project with Maven, run "mvn install" in builders.
+To build the project with Maven, run "mvn clean install" in builders.
 The "web" module war and "admin" module jar will be in the buildMaven folder.
 
 To test the project with Maven, run "mvn test" in builders.
@@ -13,7 +13,7 @@ Gradle
 
 Gradle 7.4 or other compatible version is required for this build.
 
-To build the project with Gradle, run "gradle build" in builders.
+To build the project with Gradle, run "gradle clean build" in builders.
 The "web" module war and "admin" module jar will be in the buildGradle folder.
 
 To test the project with Gradle, run "gradle test" in builders.
