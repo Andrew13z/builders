@@ -70,6 +70,7 @@
                                     <type>${project.packaging}</type>
                                     <classifier>jar-with-dependencies</classifier>
                                     <overWrite>true</overWrite>
+                                    <destFileName>${project.artifactId}-${project.version}.${project.packaging}</destFileName>
                                 </artifactItem>
                             </artifactItems>
                             <outputDirectory>../buildMaven</outputDirectory>
