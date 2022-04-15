@@ -1,0 +1,53 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+
+            steps {
+                build job: 'continuous', parameters: [[$class: 'StringParameterValue', name: 'buildTool', value: "${buildTool}"]]
+            }
+
+        }
+
+        stage('Deploy local') {
+
+            steps {
+                build job: 'deploy'
+            }
+
+        }
+
+        stage ('Check deployment') {
+
+            steps {
+                //waiting 30 second so that tomcat deploy the artifacts
+                sleep 30
+                script {
+                    int statusCode = sh (script: 'curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/web/', returnStdout: true)
+                    echo "Status code = ${statusCode}"
+                    if ("${statusCode}" == '200'){
+                        sh '''cd $JENKINS_WORKSPACE
+                              rm -rf prod_artifacts
+                              cp -r artifacts prod_artifacts
+                              echo Promoted artifacts to Prod'''
+                        return
+                    } else {
+                        echo "Build failed"
+                        currentBuild.result = 'FAILED'
+                        error("Received ${statusCode} instead of 200 from local.")
+                    }
+                }
+
+            }
+        }
+
+        stage('Deploy cloud') {
+
+            steps {
+                build job: 'deploy_cloud'
+            }
+
+        }
+    }
+}

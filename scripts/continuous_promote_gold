@@ -1,0 +1,4 @@
+cd $JENKINS_WORKSPACE
+rm -rf prod_artifacts
+cp -r artifacts prod_artifacts
+echo Promoted artifacts to Prod

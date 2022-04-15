@@ -1,0 +1,10 @@
+rm -rf buildMaven
+rm -rf buildGradle
+echo Removed build folders
+if [ "$buildTool" = "Gradle" ]; then
+	echo Building artifacts with Gradle
+	gradle clean build
+else
+	echo Building artifacts with Maven
+	mvn clean install
+fi

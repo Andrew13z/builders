@@ -1,0 +1,5 @@
+cd $JENKINS_WORKSPACE
+cp artifacts/web*.war $TOMCAT_HOME/webapps/web.war
+
+cd $JENKINS_WORKSPACE/artifacts
+java -jar admin*.jar "I don't know if this is required"

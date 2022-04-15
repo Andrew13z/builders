@@ -1,0 +1,9 @@
+cd $JENKINS_WORKSPACE
+rm -rf artifacts
+if [ "$buildTool" = "Gradle" ]; then
+	echo Promoting Gradle artifacts to QA
+	cp -r builders/continuous/buildGradle artifacts
+else
+	echo Promoting Maven artifacts to QA
+	cp -r builders/continuous/buildMaven artifacts
+fi

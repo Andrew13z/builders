@@ -1,0 +1,2 @@
+cd $JENKINS_WORKSPACE
+cp prod_artifacts/web*.war builders/deploy_cloud/web.war
